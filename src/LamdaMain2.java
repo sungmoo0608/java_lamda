@@ -6,11 +6,13 @@ interface Printable{
 }
 */
 
-//람다란? 인터페이스 구현을 화살표 함수로
+//람다란? 인터페이스(익명 함수 1개만 있어야함) 구현을 화살표 함수로
 
 import java.util.Set;
 import java.util.TreeSet;
 
+//추상 함수가 2개인 경우 에러를 발생
+@FunctionalInterface //람다용 인터페이스인지 체크해주는 애노테이션
 interface Add{
 	int add(int num1,int num2);
 }
