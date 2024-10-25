@@ -3,9 +3,41 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
+
 public class LamdaRemoveIfMain {
 
 	public static void main(String[] args) {
+		
+	    List<Student> sArr = new ArrayList<Student>();
+	    sArr.add(new Student(90,80,70,"홍길동"));
+	    sArr.add(new Student(90,70,60,"홍길순"));
+	    sArr.add(new Student(90,70,60,"홍말자"));
+	    sArr.add(new Student(50,50,50,"바둑이"));
+	    
+	    //1.수학점수 70점 밑으로~
+	    //boolean test(T t);
+	    Predicate<Student> pStudent = (Student student) -> {
+	    	
+	    	int math = student.math;
+	    	return (math<70)?true:false;
+	    	
+	    };
+	    
+	    //2.평균이 60점 밑으로~
+	    
+	    pStudent = (Student student) -> { 
+	    	
+	    	double avg = (student.eng+student.math+student.kor)/3.0;
+	    	return (avg<60)?true:false;
+	    };
+	    
+		
+	    sArr.removeIf(pStudent);
+	    
+	    for (Student student2 : sArr) {
+			System.out.println(student2.name);
+		}
+	    
 		
 		List<Integer> ls = Arrays.asList(1,-2,3,4,5);
 		
